@@ -1,6 +1,11 @@
 #include <iostream>
 #include <thread>
 #include <vector>
+#include <algorithm>
+#include <numeric>
+#include <random>
+#include <cstring>
+#include <chrono>
 
 #include <libpmem2.h>
 
@@ -12,11 +17,16 @@
 #include "spin_barrier.h"
 
 int main() {
+	bool is_random = false;
+	int thread_num = 8;
+	int wr_size = 1024*1024*1024; // 1GiB
+	int thread_wr_size = wr_size / thread_num;
+	int block_size = 512; // 64Byte
+
 	int fd;
 	struct pmem2_config *cfg;
 	struct pmem2_map *map;
 	struct pmem2_source *src;
-	pmem2_persist_fn persist;
 
 	if((fd = open("/home/taki/CLionProjects/pmem_bench/pmem_test", O_RDWR)) < 0) {
 		perror("open");
@@ -43,7 +53,7 @@ int main() {
 	}
 
 	char *map_addr = static_cast<char*>(pmem2_map_get_address(map));
-	pmem2_memcpy_fn memmcpy_fn = pmem2_get_memcpy_fn(map);
+	pmem2_memcpy_fn memcpy_fn = pmem2_get_memcpy_fn(map);
 	pmem2_persist_fn persist_fn = pmem2_get_persist_fn(map);
 
 	auto generate_random_string = [](int length)->std::string {
@@ -57,27 +67,58 @@ int main() {
 		};
 
 		std::string str(length, 0);
-		for(auto s : str) {
+		for(auto& s : str) {
 			s = generate_random_char();
 		}
 		return str;
 	};
+	// random data
+	std::string random_string = generate_random_string(1024*1024);
 
-	const int thread_num = 3;
-	spin_barrier spinBarrier(thread_num);
+	spin_barrier barrier(thread_num);
 	std::vector<std::thread> workers;
+	auto start = std::chrono::system_clock::now();
 
+	workers.reserve(thread_num);
 	for (int thread_id = 0; thread_id < thread_num; ++thread_id) {
 		workers.emplace_back(std::thread([&,thread_id](){
+			std::vector<int> index(thread_wr_size / block_size);
+			char random_data[1024*1024];
+			std::strcpy(random_data, random_string.c_str());
 
-			spinBarrier.wait(thread_id);
+			std::iota(index.begin(), index.end(), 0);
+			if(is_random) {
+				std::random_device seed;
+				std::mt19937 engine(seed());
+				std::shuffle(index.begin(), index.end(), engine);
+			}
+
+			char* local_base_addr = map_addr + (thread_wr_size * thread_id);
+
+			barrier.wait(thread_id);
+			if(thread_id == 0){
+				start = std::chrono::system_clock::now();
+			}
+
+			for(const auto& i : index) {
+				// copy to nvdimm
+				memcpy_fn(
+						local_base_addr + block_size * i, // dest
+						random_data + (block_size * i) % (1024*1024) , //src
+						block_size, // size
+						0 //flag
+						);
+			}
+
 		}));
 	}
 
 	for(auto& w : workers) {
 		w.join();
 	}
+	auto end = std::chrono::system_clock::now();
 
+	std::cout << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << std::endl;
 
 	pmem2_map_delete(&map);
 	pmem2_config_delete(&cfg);
