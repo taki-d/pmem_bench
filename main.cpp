@@ -17,11 +17,16 @@
 #include "spin_barrier.h"
 
 int main() {
-	bool is_random = false;
+	int is_random = 0;
+	int is_write = 0;
 	int thread_num = 8;
 	int wr_size = 1024*1024*1024; // 1GiB
-	int thread_wr_size = wr_size / thread_num;
+	
 	int block_size = 512; // 64Byte
+
+	std::cin >> is_random >> is_write >> wr_size >> thread_num >> block_size;	
+
+    int thread_wr_size = wr_size / thread_num;
 
 	int fd;
 	struct pmem2_config *cfg;
@@ -102,12 +107,20 @@ int main() {
 
 			for(const auto& i : index) {
 				// copy to nvdimm
-				memcpy_fn(
+				if(is_write) {
+					memcpy_fn(
 						local_base_addr + block_size * i, // dest
-						random_data + (block_size * i) % (1024*1024) , //src
+						random_data + (block_size * i) % (1024*1024), //src
 						block_size, // size
 						0 //flag
 						);
+				} else {
+					memcpy(
+						random_data + (block_size * i) % (1024*1024),
+						local_base_addr + block_size * i,
+						block_size
+					);
+				}
 			}
 
 		}));
