@@ -28,7 +28,7 @@ int main() {
 	struct pmem2_map *map;
 	struct pmem2_source *src;
 
-	if((fd = open("/home/taki/CLionProjects/pmem_bench/pmem_test", O_RDWR)) < 0) {
+	if((fd = open("/dev/dax0.1", O_RDWR)) < 0) {
 		perror("open");
 	}
 
@@ -42,7 +42,7 @@ int main() {
 		std::exit(1);
 	}
 
-	if(pmem2_config_set_required_store_granularity(cfg, PMEM2_GRANULARITY_PAGE)){
+	if(pmem2_config_set_required_store_granularity(cfg, PMEM2_GRANULARITY_CACHE_LINE)){
 		pmem2_perror("pmem2_config_set_required_store_granularity");
 		std::exit(1);
 	}
