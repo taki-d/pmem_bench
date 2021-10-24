@@ -131,7 +131,7 @@ int main() {
 	}
 	auto end = std::chrono::system_clock::now();
 
-	std::cout << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << std::endl;
+	std::cout << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << std::endl;
 
 	pmem2_map_delete(&map);
 	pmem2_config_delete(&cfg);
