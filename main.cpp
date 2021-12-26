@@ -20,18 +20,18 @@ int main(int argc, char *argv[]) {
     // test params
 	int is_random = 0;
 	int thread_num = 8;
-	int wr_size = 1024*1024*1024; // 1GiB
-	int block_size = 512; // 64Byte
+	long long int wr_size = 1024*1024*1024; // 1GiB
+	long long int block_size = 512; // 64Byte
     int operation = 0;
     std::string dax_path = "/dev/dax0.0";
 
     std::vector<std::string> args(argv, argv + argc);
     dax_path = args[0];
     is_random = std::stoi(args[1]);
-    thread_num = std::stoi(args[2]);
-    wr_size = std::stoi(args[3]);
-    block_size = std::stoi(args[4]);
-    operation = std::stoi(args[5]);
+    operation = std::stoi(args[2]);
+    thread_num = std::stoi(args[3]);
+    wr_size = std::stoll(args[4]);
+    block_size = std::stoll(args[5]);
 
     int thread_wr_size = wr_size / thread_num;
 
