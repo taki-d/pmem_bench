@@ -16,15 +16,22 @@
 
 #include "spin_barrier.h"
 
-int main() {
+int main(int argc, char *argv[]) {
+    // test params
 	int is_random = 0;
-	int is_write = 0;
 	int thread_num = 8;
 	int wr_size = 1024*1024*1024; // 1GiB
-	
 	int block_size = 512; // 64Byte
+    int operation = 0;
+    std::string dax_path = "/dev/dax0.0";
 
-	std::cin >> is_random >> is_write >> wr_size >> thread_num >> block_size;	
+    std::vector<std::string> args(argv, argv + argc);
+    dax_path = args[0];
+    is_random = std::stoi(args[1]);
+    thread_num = std::stoi(args[2]);
+    wr_size = std::stoi(args[3]);
+    block_size = std::stoi(args[4]);
+    operation = std::stoi(args[5]);
 
     int thread_wr_size = wr_size / thread_num;
 
@@ -33,7 +40,7 @@ int main() {
 	struct pmem2_map *map;
 	struct pmem2_source *src;
 
-	if((fd = open("/dev/dax0.1", O_RDWR)) < 0) {
+	if((fd = open(dax_path.c_str(), O_RDWR)) < 0) {
 		perror("open");
 	}
 
@@ -59,7 +66,15 @@ int main() {
 
 	char *map_addr = static_cast<char*>(pmem2_map_get_address(map));
 	pmem2_memcpy_fn memcpy_fn = pmem2_get_memcpy_fn(map);
+
 	pmem2_persist_fn persist_fn = pmem2_get_persist_fn(map);
+    // cpu can reorder the flush
+    pmem2_flush_fn flush_fn = pmem2_get_flush_fn(map);
+    // make sure to finish all of flush work before this function has been finished
+    pmem2_drain_fn drain_fn = pmem2_get_drain_fn(map);
+
+    pmem2_memmove_fn memmove_fn = pmem2_memmove_fn(map);
+    pmem2_memset_fn memset_fn = pmem2_get_memset_fn(map);
 
 	auto generate_random_string = [](int length)->std::string {
 		auto generate_random_char = []() -> char {
@@ -85,6 +100,7 @@ int main() {
 	auto start = std::chrono::system_clock::now();
 
 	workers.reserve(thread_num);
+
 	for (int thread_id = 0; thread_id < thread_num; ++thread_id) {
 		workers.emplace_back(std::thread([&,thread_id](){
 			std::vector<int> index(thread_wr_size / block_size);
@@ -105,24 +121,38 @@ int main() {
 				start = std::chrono::system_clock::now();
 			}
 
-			for(const auto& i : index) {
-				// copy to nvdimm
-				if(is_write) {
-					memcpy_fn(
-						local_base_addr + block_size * i, // dest
-						random_data + (block_size * i) % (1024*1024), //src
-						block_size, // size
-						0 //flag
-						);
-				} else {
-					memcpy(
-						random_data + (block_size * i) % (1024*1024),
-						local_base_addr + block_size * i,
-						block_size
-					);
-				}
-			}
-
+            switch(operation) {
+                case 0:
+                    for (const auto &i : index) {
+                        std::memcpy(
+                                local_base_addr + block_size * i, // dest
+                                random_data + (block_size * i) % (1024 * 1024), //src
+                                block_size // size
+                        );
+                        flush_fn(local_base_addr + block_size * i, block_size);
+                        drain_fn();
+                    }
+                    break;
+                case 1: // write normally
+                    for (const auto &i: index) {
+                        memcpy_fn(
+                                local_base_addr + block_size * i, // dest
+                                random_data + (block_size * i) % (1024 * 1024), //src
+                                block_size, // size
+                                0 //flag
+                        );
+                    }
+                    break;
+                case 2:
+                    for (const auto &i: index) {
+                        memcpy(
+                                random_data + (block_size * i) % (1024 * 1024),
+                                local_base_addr + block_size * i,
+                                block_size
+                        );
+                    }
+                    break;
+            }
 		}));
 	}
 
