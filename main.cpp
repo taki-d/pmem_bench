@@ -26,15 +26,17 @@ int main(int argc, char *argv[]) {
     std::string dax_path = "/dev/dax0.0";
 
     std::vector<std::string> args(argv, argv + argc);
-    dax_path = args[0];
-    is_random = std::stoi(args[1]);
-    operation = std::stoi(args[2]);
-    thread_num = std::stoi(args[3]);
-    wr_size = std::stoll(args[4]);
-    block_size = std::stoll(args[5]);
+    dax_path = args[1];
+    is_random = std::stoi(args[2]);
+    operation = std::stoi(args[3]);
+    thread_num = std::stoi(args[4]);
+    wr_size = std::stoll(args[5]);
+    block_size = std::stoll(args[6]);
+
+    std::cout << is_random << "," << operation <<  "," << thread_num;
+    std::cout << "," << wr_size << "," << block_size << ",";
 
     int thread_wr_size = wr_size / thread_num;
-
 	int fd;
 	struct pmem2_config *cfg;
 	struct pmem2_map *map;
