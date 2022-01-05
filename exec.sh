@@ -37,10 +37,10 @@ echo $OUTPUT_PATH
 
 for flush_func in "${flush_func_list[@]}"; do
   for write_func in "${write_func_list[@]}"; do
+    RESULT_FILE="${hostname}_${flush[$flush_func]}_${write[$write_func]}.data"
     for is_random in 0 1; do
       for operation in 0 1 2; do
-        RESULT_FILE="${flush[$flush_func]}_${write[$write_func]}_${is_random}_${operation}.data"
-	echo $RESULT_FILE
+	      echo benchmarking $RESULT_FILE
 
         for thread in 1 2 4 8 16; do
           for blocksize_base in `seq 2 21`; do
