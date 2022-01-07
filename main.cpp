@@ -127,12 +127,12 @@ int main(int argc, char *argv[]) {
                 case 0:
                     for (const auto &i : index) {
                         // force to ntstore
-			memcpy_fn(
+						memcpy_fn(
                                 local_base_addr + block_size * i, // dest
                                 random_data + (block_size * i) % (1024 * 1024), //src
                                 block_size, // size
                                 PMEM2_F_MEM_NONTEMPORAL //flag
-			);
+						);
 		    }
                     break;
                 case 1: // write normally
@@ -146,7 +146,18 @@ int main(int argc, char *argv[]) {
                         );
                     }
                     break;
-                case 2:
+				case 2:
+					for (const auto &i : index) {
+						memcpy_fn(
+								local_base_addr + block_size * i, // dest
+								random_data + (block_size * i) % (1024 * 1024), // src
+								block_size,
+								PMEM2_F_MEM_NOFLUSH
+						);
+						flush_fn(local_base_addr + block_size * i, block_size);
+						drain_fn();
+					}
+                case 3:
                     for (const auto &i: index) {
                         memcpy(
                                 random_data + (block_size * i) % (1024 * 1024),
