@@ -126,22 +126,23 @@ int main(int argc, char *argv[]) {
             switch(operation) {
                 case 0:
                     for (const auto &i : index) {
-                        std::memcpy(
+                        // force to ntstore
+			memcpy_fn(
                                 local_base_addr + block_size * i, // dest
                                 random_data + (block_size * i) % (1024 * 1024), //src
-                                block_size // size
-                        );
-                        flush_fn(local_base_addr + block_size * i, block_size);
-                        drain_fn();
-                    }
+                                block_size, // size
+                                PMEM2_F_MEM_NONTEMPORAL //flag
+			);
+		    }
                     break;
                 case 1: // write normally
+		    // force to store/flush
                     for (const auto &i: index) {
                         memcpy_fn(
                                 local_base_addr + block_size * i, // dest
                                 random_data + (block_size * i) % (1024 * 1024), //src
                                 block_size, // size
-                                PMEM2_F_MEM_MOV //flag
+                                PMEM2_F_MEM_TEMPORAL //flag
                         );
                     }
                     break;
