@@ -141,7 +141,7 @@ int main(int argc, char *argv[]) {
                                 local_base_addr + block_size * i, // dest
                                 random_data + (block_size * i) % (1024 * 1024), //src
                                 block_size, // size
-                                0 //flag
+                                PMEM2_F_MEM_MOV //flag
                         );
                     }
                     break;
