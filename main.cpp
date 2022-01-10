@@ -104,50 +104,51 @@ int main(int argc, char *argv[]) {
 	workers.reserve(thread_num);
 
 	for (int thread_id = 0; thread_id < thread_num; ++thread_id) {
-		workers.emplace_back(std::thread([&,thread_id](){
+		workers.emplace_back(std::thread([&,thread_id]() {
 			std::vector<int> index(thread_wr_size / block_size);
-			char random_data[1024*1024];
+			char random_data[1024 * 1024];
 			std::strcpy(random_data, random_string.c_str());
 
 			std::iota(index.begin(), index.end(), 0);
-			if(is_random) {
+			if (is_random) {
 				std::random_device seed;
 				std::mt19937 engine(seed());
 				std::shuffle(index.begin(), index.end(), engine);
 			}
 
-			char* local_base_addr = map_addr + (thread_wr_size * thread_id);
+			char *local_base_addr = map_addr + (thread_wr_size * thread_id);
 
 			barrier.wait(thread_id);
-			if(thread_id == 0){
+			if (thread_id == 0) {
 				start = std::chrono::system_clock::now();
 			}
 
-            switch(operation) {
-                case 0:
-                    for (const auto &i : index) {
-                        // force to ntstore
+			switch (operation) {
+				case 0:
+					for (const auto &i: index) {
+						// force to use ntstore
 						memcpy_fn(
-                                local_base_addr + block_size * i, // dest
-                                random_data + (block_size * i) % (1024 * 1024), //src
-                                block_size, // size
-                                PMEM2_F_MEM_NONTEMPORAL //flag
+								local_base_addr + block_size * i, // dest
+								random_data + (block_size * i) % (1024 * 1024), //src
+								block_size, // size
+								PMEM2_F_MEM_NONTEMPORAL //flag
 						);
-		    }
-                    break;
-                case 1: // write normally
-		    // force to store/flush
-                    for (const auto &i: index) {
-                        memcpy_fn(
-                                local_base_addr + block_size * i, // dest
-                                random_data + (block_size * i) % (1024 * 1024), //src
-                                block_size, // size
-                                PMEM2_F_MEM_TEMPORAL //flag
-                        );
-                    }
-                    break;
+					}
+					break;
+				case 1:
+					for (const auto &i: index) {
+						// force to use store/flush
+						memcpy_fn(
+								local_base_addr + block_size * i, // dest
+								random_data + (block_size * i) % (1024 * 1024), //src
+								block_size, // size
+								PMEM2_F_MEM_TEMPORAL //flag
+						);
+					}
+					break;
 				case 2:
-					for (const auto &i : index) {
+					for (const auto &i: index) {
+						// force to store and flush
 						memcpy_fn(
 								local_base_addr + block_size * i, // dest
 								random_data + (block_size * i) % (1024 * 1024), // src
@@ -157,23 +158,35 @@ int main(int argc, char *argv[]) {
 						flush_fn(local_base_addr + block_size * i, block_size);
 						drain_fn();
 					}
-                case 3:
-                    for (const auto &i: index) {
-                        memcpy(
-                                random_data + (block_size * i) % (1024 * 1024),
-                                local_base_addr + block_size * i,
-                                block_size
-                        );
-                    }
-                    break;
-            }
-		}));
-	}
+				case 3:
+					for (const auto &i: index) {
+						// normal write (use ntstore larger than 512Byte instead of store)
+						memcpy_fn(
+								local_base_addr + block_size * i, // dest
+								random_data + (block_size * i) % (1024 * 1024), // src
+								block_size,
+								0
+						);
+					}
+					break;
+				case 4:
+					for (const auto &i: index) {
+						// normal write (use ntstore larger than 512Byte)
+						memcpy(
+								random_data + (block_size * i) % (1024 * 1024),
+								local_base_addr + block_size * i,
+								block_size
+						);
+					}
+					break;
+			}
+			}));
+		}
 
-	for(auto& w : workers) {
-		w.join();
-	}
-	auto end = std::chrono::system_clock::now();
+		for(auto& w : workers) {
+			w.join();
+		}
+		auto end = std::chrono::system_clock::now();
 
 	std::cout << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << std::endl;
 
