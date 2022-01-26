@@ -1,0 +1,240 @@
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_avx.data_sequential_ntstore
+ ![figure](chris91_clflush_avx.data_sequential_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_avx.data_sequential_tstore
+ ![figure](chris91_clflush_avx.data_sequential_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_avx.data_sequential_tstoreflushatonce
+ ![figure](chris91_clflush_avx.data_sequential_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_avx.data_sequential_default
+ ![figure](chris91_clflush_avx.data_sequential_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_avx.data_random_ntstore
+ ![figure](chris91_clflush_avx.data_random_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_avx.data_random_tstore
+ ![figure](chris91_clflush_avx.data_random_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_avx.data_random_tstoreflushatonce
+ ![figure](chris91_clflush_avx.data_random_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_avx.data_random_default
+ ![figure](chris91_clflush_avx.data_random_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_avx512f.data_sequential_ntstore
+ ![figure](chris91_clflush_avx512f.data_sequential_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_avx512f.data_sequential_tstore
+ ![figure](chris91_clflush_avx512f.data_sequential_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_avx512f.data_sequential_tstoreflushatonce
+ ![figure](chris91_clflush_avx512f.data_sequential_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_avx512f.data_sequential_default
+ ![figure](chris91_clflush_avx512f.data_sequential_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_avx512f.data_random_ntstore
+ ![figure](chris91_clflush_avx512f.data_random_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_avx512f.data_random_tstore
+ ![figure](chris91_clflush_avx512f.data_random_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_avx512f.data_random_tstoreflushatonce
+ ![figure](chris91_clflush_avx512f.data_random_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_avx512f.data_random_default
+ ![figure](chris91_clflush_avx512f.data_random_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_genericmemmove.data_sequential_ntstore
+ ![figure](chris91_clflush_genericmemmove.data_sequential_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_genericmemmove.data_sequential_tstore
+ ![figure](chris91_clflush_genericmemmove.data_sequential_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_genericmemmove.data_sequential_tstoreflushatonce
+ ![figure](chris91_clflush_genericmemmove.data_sequential_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_genericmemmove.data_sequential_default
+ ![figure](chris91_clflush_genericmemmove.data_sequential_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_genericmemmove.data_random_ntstore
+ ![figure](chris91_clflush_genericmemmove.data_random_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_genericmemmove.data_random_tstore
+ ![figure](chris91_clflush_genericmemmove.data_random_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_genericmemmove.data_random_tstoreflushatonce
+ ![figure](chris91_clflush_genericmemmove.data_random_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_genericmemmove.data_random_default
+ ![figure](chris91_clflush_genericmemmove.data_random_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_libcmemmove.data_sequential_ntstore
+ ![figure](chris91_clflush_libcmemmove.data_sequential_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_libcmemmove.data_sequential_tstore
+ ![figure](chris91_clflush_libcmemmove.data_sequential_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_libcmemmove.data_sequential_tstoreflushatonce
+ ![figure](chris91_clflush_libcmemmove.data_sequential_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_libcmemmove.data_sequential_default
+ ![figure](chris91_clflush_libcmemmove.data_sequential_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_libcmemmove.data_random_ntstore
+ ![figure](chris91_clflush_libcmemmove.data_random_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_libcmemmove.data_random_tstore
+ ![figure](chris91_clflush_libcmemmove.data_random_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_libcmemmove.data_random_tstoreflushatonce
+ ![figure](chris91_clflush_libcmemmove.data_random_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_libcmemmove.data_random_default
+ ![figure](chris91_clflush_libcmemmove.data_random_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_sse2.data_sequential_ntstore
+ ![figure](chris91_clflush_sse2.data_sequential_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_sse2.data_sequential_tstore
+ ![figure](chris91_clflush_sse2.data_sequential_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_sse2.data_sequential_tstoreflushatonce
+ ![figure](chris91_clflush_sse2.data_sequential_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_sse2.data_sequential_default
+ ![figure](chris91_clflush_sse2.data_sequential_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_sse2.data_random_ntstore
+ ![figure](chris91_clflush_sse2.data_random_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_sse2.data_random_tstore
+ ![figure](chris91_clflush_sse2.data_random_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_sse2.data_random_tstoreflushatonce
+ ![figure](chris91_clflush_sse2.data_random_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflush_sse2.data_random_default
+ ![figure](chris91_clflush_sse2.data_random_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_avx.data_sequential_ntstore
+ ![figure](chris91_clflushopt_avx.data_sequential_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_avx.data_sequential_tstore
+ ![figure](chris91_clflushopt_avx.data_sequential_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_avx.data_sequential_tstoreflushatonce
+ ![figure](chris91_clflushopt_avx.data_sequential_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_avx.data_sequential_default
+ ![figure](chris91_clflushopt_avx.data_sequential_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_avx.data_random_ntstore
+ ![figure](chris91_clflushopt_avx.data_random_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_avx.data_random_tstore
+ ![figure](chris91_clflushopt_avx.data_random_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_avx.data_random_tstoreflushatonce
+ ![figure](chris91_clflushopt_avx.data_random_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_avx.data_random_default
+ ![figure](chris91_clflushopt_avx.data_random_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_avx512f.data_sequential_ntstore
+ ![figure](chris91_clflushopt_avx512f.data_sequential_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_avx512f.data_sequential_tstore
+ ![figure](chris91_clflushopt_avx512f.data_sequential_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_avx512f.data_sequential_tstoreflushatonce
+ ![figure](chris91_clflushopt_avx512f.data_sequential_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_avx512f.data_sequential_default
+ ![figure](chris91_clflushopt_avx512f.data_sequential_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_avx512f.data_random_ntstore
+ ![figure](chris91_clflushopt_avx512f.data_random_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_avx512f.data_random_tstore
+ ![figure](chris91_clflushopt_avx512f.data_random_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_avx512f.data_random_tstoreflushatonce
+ ![figure](chris91_clflushopt_avx512f.data_random_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_avx512f.data_random_default
+ ![figure](chris91_clflushopt_avx512f.data_random_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_genericmemmove.data_sequential_ntstore
+ ![figure](chris91_clflushopt_genericmemmove.data_sequential_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_genericmemmove.data_sequential_tstore
+ ![figure](chris91_clflushopt_genericmemmove.data_sequential_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_genericmemmove.data_sequential_tstoreflushatonce
+ ![figure](chris91_clflushopt_genericmemmove.data_sequential_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_genericmemmove.data_sequential_default
+ ![figure](chris91_clflushopt_genericmemmove.data_sequential_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_genericmemmove.data_random_ntstore
+ ![figure](chris91_clflushopt_genericmemmove.data_random_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_genericmemmove.data_random_tstore
+ ![figure](chris91_clflushopt_genericmemmove.data_random_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_genericmemmove.data_random_tstoreflushatonce
+ ![figure](chris91_clflushopt_genericmemmove.data_random_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_genericmemmove.data_random_default
+ ![figure](chris91_clflushopt_genericmemmove.data_random_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_libcmemmove.data_sequential_ntstore
+ ![figure](chris91_clflushopt_libcmemmove.data_sequential_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_libcmemmove.data_sequential_tstore
+ ![figure](chris91_clflushopt_libcmemmove.data_sequential_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_libcmemmove.data_sequential_tstoreflushatonce
+ ![figure](chris91_clflushopt_libcmemmove.data_sequential_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_libcmemmove.data_sequential_default
+ ![figure](chris91_clflushopt_libcmemmove.data_sequential_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_libcmemmove.data_random_ntstore
+ ![figure](chris91_clflushopt_libcmemmove.data_random_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_libcmemmove.data_random_tstore
+ ![figure](chris91_clflushopt_libcmemmove.data_random_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_libcmemmove.data_random_tstoreflushatonce
+ ![figure](chris91_clflushopt_libcmemmove.data_random_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_libcmemmove.data_random_default
+ ![figure](chris91_clflushopt_libcmemmove.data_random_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_sse2.data_sequential_ntstore
+ ![figure](chris91_clflushopt_sse2.data_sequential_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_sse2.data_sequential_tstore
+ ![figure](chris91_clflushopt_sse2.data_sequential_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_sse2.data_sequential_tstoreflushatonce
+ ![figure](chris91_clflushopt_sse2.data_sequential_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_sse2.data_sequential_default
+ ![figure](chris91_clflushopt_sse2.data_sequential_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_sse2.data_random_ntstore
+ ![figure](chris91_clflushopt_sse2.data_random_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_sse2.data_random_tstore
+ ![figure](chris91_clflushopt_sse2.data_random_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_sse2.data_random_tstoreflushatonce
+ ![figure](chris91_clflushopt_sse2.data_random_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clflushopt_sse2.data_random_default
+ ![figure](chris91_clflushopt_sse2.data_random_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_avx.data_sequential_ntstore
+ ![figure](chris91_clwb_avx.data_sequential_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_avx.data_sequential_tstore
+ ![figure](chris91_clwb_avx.data_sequential_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_avx.data_sequential_tstoreflushatonce
+ ![figure](chris91_clwb_avx.data_sequential_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_avx.data_sequential_default
+ ![figure](chris91_clwb_avx.data_sequential_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_avx.data_random_ntstore
+ ![figure](chris91_clwb_avx.data_random_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_avx.data_random_tstore
+ ![figure](chris91_clwb_avx.data_random_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_avx.data_random_tstoreflushatonce
+ ![figure](chris91_clwb_avx.data_random_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_avx.data_random_default
+ ![figure](chris91_clwb_avx.data_random_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_avx512f.data_sequential_ntstore
+ ![figure](chris91_clwb_avx512f.data_sequential_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_avx512f.data_sequential_tstore
+ ![figure](chris91_clwb_avx512f.data_sequential_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_avx512f.data_sequential_tstoreflushatonce
+ ![figure](chris91_clwb_avx512f.data_sequential_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_avx512f.data_sequential_default
+ ![figure](chris91_clwb_avx512f.data_sequential_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_avx512f.data_random_ntstore
+ ![figure](chris91_clwb_avx512f.data_random_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_avx512f.data_random_tstore
+ ![figure](chris91_clwb_avx512f.data_random_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_avx512f.data_random_tstoreflushatonce
+ ![figure](chris91_clwb_avx512f.data_random_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_avx512f.data_random_default
+ ![figure](chris91_clwb_avx512f.data_random_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_genericmemmove.data_sequential_ntstore
+ ![figure](chris91_clwb_genericmemmove.data_sequential_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_genericmemmove.data_sequential_tstore
+ ![figure](chris91_clwb_genericmemmove.data_sequential_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_genericmemmove.data_sequential_tstoreflushatonce
+ ![figure](chris91_clwb_genericmemmove.data_sequential_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_genericmemmove.data_sequential_default
+ ![figure](chris91_clwb_genericmemmove.data_sequential_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_genericmemmove.data_random_ntstore
+ ![figure](chris91_clwb_genericmemmove.data_random_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_genericmemmove.data_random_tstore
+ ![figure](chris91_clwb_genericmemmove.data_random_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_genericmemmove.data_random_tstoreflushatonce
+ ![figure](chris91_clwb_genericmemmove.data_random_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_genericmemmove.data_random_default
+ ![figure](chris91_clwb_genericmemmove.data_random_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_libcmemmove.data_sequential_ntstore
+ ![figure](chris91_clwb_libcmemmove.data_sequential_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_libcmemmove.data_sequential_tstore
+ ![figure](chris91_clwb_libcmemmove.data_sequential_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_libcmemmove.data_sequential_tstoreflushatonce
+ ![figure](chris91_clwb_libcmemmove.data_sequential_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_libcmemmove.data_sequential_default
+ ![figure](chris91_clwb_libcmemmove.data_sequential_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_libcmemmove.data_random_ntstore
+ ![figure](chris91_clwb_libcmemmove.data_random_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_libcmemmove.data_random_tstore
+ ![figure](chris91_clwb_libcmemmove.data_random_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_libcmemmove.data_random_tstoreflushatonce
+ ![figure](chris91_clwb_libcmemmove.data_random_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_libcmemmove.data_random_default
+ ![figure](chris91_clwb_libcmemmove.data_random_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_sse2.data_sequential_ntstore
+ ![figure](chris91_clwb_sse2.data_sequential_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_sse2.data_sequential_tstore
+ ![figure](chris91_clwb_sse2.data_sequential_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_sse2.data_sequential_tstoreflushatonce
+ ![figure](chris91_clwb_sse2.data_sequential_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_sse2.data_sequential_default
+ ![figure](chris91_clwb_sse2.data_sequential_default.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_sse2.data_random_ntstore
+ ![figure](chris91_clwb_sse2.data_random_ntstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_sse2.data_random_tstore
+ ![figure](chris91_clwb_sse2.data_random_tstore.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_sse2.data_random_tstoreflushatonce
+ ![figure](chris91_clwb_sse2.data_random_tstoreflushatonce.png)
+../data/2022-01-25T17:03:47+09:00/chris91_clwb_sse2.data_random_default
+ ![figure](chris91_clwb_sse2.data_random_default.png)
