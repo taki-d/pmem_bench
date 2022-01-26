@@ -137,7 +137,7 @@ int main(int argc, char *argv[]) {
 					break;
 				case 1:
 					for (const auto &i: index) {
-						// force to use store/flush
+						// force to use store/flush each epoch
 						memcpy_fn(
 								local_base_addr + block_size * i, // dest
 								random_data + (block_size * i) % (1024 * 1024), //src

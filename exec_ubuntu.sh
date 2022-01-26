@@ -38,12 +38,12 @@ echo $OUTPUT_PATH
 for flush_func in "${flush_func_list[@]}"; do
   for write_func in "${write_func_list[@]}"; do
     RESULT_FILE="${HOSTNAME}_${flush[$flush_func]}_${write[$write_func]}.data"
-    for is_random in 0; do
+    for is_random in 0 1; do
       for operation in 0 1 2 3; do
 	echo benchmarking $RESULT_FILE
         for thread in 1 2 4 8 16; do
           for blocksize_base in `seq 4 21`; do
-          for kurikaeshi in `seq 3`; do
+          for kurikaeshi in `seq 5`; do
             echo env $DEBUG_ENV $write_func $flush_func $BIN_PATH $DAX_PATH $is_random $operation $thread $WR_SIZE $(echo "print 2 ** $blocksize_base" | perl)
             sudo env $DEBUG_ENV $write_func $flush_func $BIN_PATH $DAX_PATH $is_random $operation $thread $WR_SIZE $(echo "print 2 ** $blocksize_base" | perl) >> "$OUTPUT_PATH/$RESULT_FILE"
           done
